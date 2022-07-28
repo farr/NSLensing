@@ -11,6 +11,7 @@
 \newcommand{\bNS}{b_\mathrm{NS}}
 \newcommand{\phiNS}{\phi_\mathrm{NS}}
 \newcommand{\rNS}{r_\mathrm{NS}}
+\newcommand{\vRot}{v_\mathrm{rot}}
 
 \newcommand{\rSchw}{r_\mathrm{Schw}}
 
@@ -63,8 +64,9 @@ with $\lambda$ either proper time (for time-like geodesics) or an affine
 parameter (null geodesics), and $\chi^\mu(\lambda)$ the coordinates of the
 points on the geodesic, then N\"{o}ther's Theorem gives 
 \begin{eqnarray}
-\label{conserved}
+\label{eq:conserved-e}
 g_{\mu \nu} \xi^\mu p^\nu = - \left( 1 - \frac{2}{\chi^r} \right) p^t & = & \textnormal{const} \equiv - e,\\
+\label{eq:conserved-l}
 g_{\mu \nu} \zeta^\mu p^\nu = (\chi^r)^2 \sin^2 (\chi^\theta) p^\phi & = & \textnormal{const} \equiv l
 \end{eqnarray}
 along any geodesic.  ($e$ and $l$ are the energy and angular momentum---per unit
@@ -77,8 +79,9 @@ For a null geodesic, we also have the normalization condition
 g_{\mu \nu} p^\mu p^\nu = 0.
 \end{equation}
 Exploiting the rotational symmetry of the $\theta$-$\phi$ subspace, we can,
-without loss of generality, consider only geodesics which have $\chi^\theta
-(\lambda) = \pi /2$.  In this case, Equation \ref{normalization} becomes
+without loss of generality, work in the equatorial plane, considering only
+geodesics which have $\chi^\theta (\lambda) = \pi /2$.  In this case, Equation
+\ref{normalization} becomes
 \begin{equation}
 -\frac{e^2}{1 - \frac{2}{\chi^r}} + \frac{l^2}{(\chi^r)^2} + \frac{1}{1-\frac{2}{\chi^r}} \left( \frac{\dd \chi^r}{\dd \lambda} \right)^2 = 0.
 \end{equation}
@@ -90,8 +93,8 @@ Rescaling the affine parameter, we obtain
 with $b \equiv l/e$ called the ``impact parameter''\footnote{$b$ is so named
 because it gives the distance at infinity between the geodesic and the nearest
 parallel line running radially from the center of the star.} of the trajectory.
-This equation and Equation \ref{conserved} completely determine a trajectory
-given $l$ and $e$.  
+This equation and Equations \ref{eq:conserved-e} and \ref{eq:conserved-l}
+completely determine a trajectory given $l$ and $e$.  
 
 \section{Intersection with the Surface}
 \label{sec:surface}
@@ -102,7 +105,9 @@ to the mass at
 \frac{\dd \chi^r(s_0)}{\dd s} = 0 = 1 - \frac{b^2 \left( 1 - \frac{2}{\chi^r\left(s_0\right)} \right)}{(\chi^r(s_0))^2}.
 \end{equation}
 This gives a cubic equation for $\chi^r(s_0)\equiv r_0$, whose solution is not
-terribly illuminating.  
+terribly illuminating.  Note that the ``point of closest approach'' may be
+\emph{inside} the star if the impact parameter is small enough; in this case the
+approach terminates at the stellar surface before achieving a close approach.
 
 It is of interest to determine the impact parameter, $\bNS$, of the ``grazing
 ray'' whose point of closest approach, $r_0$, is equal to the radius of the
@@ -157,6 +162,55 @@ We see that the grazing ray ($x = 1$) impacts the stellar surface at longitude
 \begin{equation}
     \phiNS = \frac{\pi}{2} + \frac{2}{\rNS} + \ldots = \frac{\pi}{2} + \frac{\rSchw}{\rNS} + \ldots
 \end{equation}
+
+\section{Relativistic Effects on Energies}
+\label{sec:relativistic}
+
+For a neutron star that is observed to pulse with period $P$, observers at fixed
+position on the surface follow coordinate trajectories that have 
+\begin{eqnarray}
+    \chi^\theta\left( \lambda \right) & = & \theta_0 \\
+    \chi^r\left( \lambda \right) & = & \rNS \\
+    \chi^\phi\left(\lambda \right) & = & \frac{2 \pi \chi^t\left(\lambda \right)}{P}
+\end{eqnarray}
+The last equation follows from the fact that $P$ is the proper time difference
+between pulses arriving at infinity at fixed location on the celestial sphere;
+and thus the \emph{coordinate} time difference between pulses is $\Delta t = P$.
+(Beware!  This is not the \emph{proper} time between pulses as measured by
+observers fixed to the neutron star surface; this latter quantity differs by a
+gravitational redshift, a time dilation due to rotational motion, and a redshift
+due to the radial acceleration of the rotational motion.)
+
+The final coordinate trajectory for the fixed-position observer can be obtained
+from the normalization condition:
+\begin{equation}
+    g_{\mu\nu} \frac{\dd \chi^\mu}{\dd \lambda} \frac{\dd \chi^\nu}{\dd \lambda} = -1,
+\end{equation}
+which fixes 
+\begin{equation}
+    \frac{\dd \chi^t}{\dd \lambda} = \frac{1}{\sqrt{1 - \frac{2}{\rNS} - \vRot^2 \sin^2 \theta_0}} = 1 + \frac{1}{2}  \vRot^2 \sin^2 \theta_0 + \frac{1 + \frac{3}{2} \vRot^2 \sin^2 \theta_0}{\rNS} + \ldots,
+\end{equation}
+where the last expansion is to first contributing order in $\vRot^2 = \left( 2
+\pi \rNS / P \right)^2$ and $1/\rNS$.  In the expansion you can see the effects
+of special relativistic time dilation, the gravitational redshift, and the
+radial acceleration (the latter being proportional to $\vRot^2 / \rNS$).  Since
+this expression is constant, the coordinate time of the observer increases
+linearly (but not with coefficient equal to one) with proper time:
+\begin{equation}
+    \Delta \chi^t = \Delta \lambda \frac{\dd \chi^t}{\dd \lambda}.
+\end{equation}
+
+For a photon striking the surface of the neutron star with momentum $p^\mu\left(
+e, l \right)$, the energy measured by the observer fixed to the surface is 
+\begin{equation}
+    -e_\mathrm{surf} = g_{\mu\nu} \frac{\dd \chi^\mu}{\dd \lambda} p^\nu;
+\end{equation}
+equivalently, for a photon \emph{emitted} from the surface with energy
+$e_\mathrm{surf}$ in the local rest frame (e.g.\ thermally from particles on the
+surface), the above equation relates the emitted energy to the energy as
+measured by observers at infinity ($e$).
+
+To be continued\ldots.
 
 \bibliography{bib}
 
