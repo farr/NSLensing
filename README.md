@@ -15,4 +15,11 @@
 </a>
 </p>
 
+# Lensed Image of a Neutron Star Surface
+
+I calculate the relationship between the impact parameter of a light ray from
+infinity and the longitude at which the ray strikes the surface of a spherical
+object in an exterior Schwarzschild spacetime, at leading order in the object's
+compactness.
+
 An open source scientific article created using the [showyourwork](https://github.com/showyourwork/showyourwork) workflow.
