@@ -1,56 +1,162 @@
 % Define document class
-\documentclass[twocolumn]{aastex631}
+\documentclass[modern]{aastex631}
 \usepackage{showyourwork}
+
+\newcommand{\sbu}{Department of Physics and Astronomy, Stony Brook University, Stony Brook NY 11794, USA}
+\newcommand{\cca}{Center for Computational Astrophysics, Flatiron Institute, New York NY 10010, USA}
+
+\newcommand{\dd}{\mathrm{d}}
+\newcommand{\order}[1]{\mathcal{O}\left( #1 \right)}
+
+\newcommand{\bNS}{b_\mathrm{NS}}
+\newcommand{\phiNS}{\phi_\mathrm{NS}}
+\newcommand{\rNS}{r_\mathrm{NS}}
+
+\newcommand{\rSchw}{r_\mathrm{Schw}}
 
 % Begin!
 \begin{document}
 
 % Title
-\title{An open source scientific article}
+\title{Lensing in the Schwarzschild Spacetime Applicable to Neutron Stars}
 
 % Author list
-\author{@farr}
+\author[0000-0003-1540-8562]{Will M. Farr}
+\email{wfarr@flatironinstitute.org}
+\affiliation{\sbu}
+\affiliation{\cca}
 
 % Abstract with filler text
 \begin{abstract}
-    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. 
-    Ut purus elit, vestibulum ut, placerat ac, adipiscing vitae, felis. 
-    Curabitur dictum gravida mauris, consectetuer id, vulputate a, magna. 
-    Donec vehicula augue eu neque, morbi tristique senectus et netus et. 
-    Mauris ut leo, cras viverra metus rhoncus sem, nulla et lectus vestibulum. 
-    Phasellus eu tellus sit amet tortor gravida placerat. 
-    Integer sapien est, iaculis in, pretium quis, viverra ac, nunc. 
-    Praesent eget sem vel leo ultrices bibendum. 
-    Aenean faucibus, morbi dolor nulla, malesuada eu, pulvinar at, mollis ac. 
-    Curabitur auctor semper nulla donec varius orci eget risus. 
-    Duis nibh mi, congue eu, accumsan eleifend, sagittis quis, diam. 
-    Duis eget orci sit amet orci dignissim rutrum.
+    I describe the effects of gravitational lensing on the image of the surface
+    of a spherical object whose surface is well outside the Schwarszchild
+    horizon.
 \end{abstract}
 
 % Main body with filler text
 \section{Introduction}
 \label{sec:intro}
 
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit. 
-Ut purus elit, vestibulum ut, placerat ac, adipiscing vitae, felis. 
-Curabitur dictum gravida mauris, consectetuer id, vulputate a, magna. 
-Donec vehicula augue eu neque, morbi tristique senectus et netus et. 
-Mauris ut leo, cras viverra metus rhoncus sem, nulla et lectus vestibulum. 
-Phasellus eu tellus sit amet tortor gravida placerat. 
-Integer sapien est, iaculis in, pretium quis, viverra ac, nunc. 
-Praesent eget sem vel leo ultrices bibendum. 
-Aenean faucibus, morbi dolor nulla, malesuada eu, pulvinar at, mollis ac. 
-Curabitur auctor semper nulla donec varius orci eget risus. 
-Duis nibh mi, congue eu, accumsan eleifend, sagittis quis, diam. 
-Duis eget orci sit amet orci dignissim rutrum.
+\section{Geodesics}
+\label{sec:geodesics}
 
-Nam dui ligula, fringilla a, euismod sodales, sollici- tudin vel, wisi. 
-Morbi auctor lorem non justo, nam lacus libero, pretium at, lobortis vitae. 
-Donec aliquet, tortor sed accumsan bibendum, erat ligula aliquet magna. 
-Morbi ac orci et nisl hendrerit mollis, suspendisse ut massa, cras nec ante. 
-Pellentesque a nulla cum sociis natoque penatibus et magnis dis parturient. 
-Aliquam tincidunt urna, nulla ullamcorper vestibulum turpis. 
-Pellentesque cursus luctus mauris \citep{Luger2021}.
+The Schwarzchild line element in standard coordinates and natural units is 
+\begin{equation}
+\dd s^2 = g_{\mu \nu} \dd x^\mu \dd x^\nu = - \left( 1 - \frac{2}{r} \right) \dd t^2 + \frac{1}{1 - \frac{2}{r}} \dd r^2 + r^2 \left( \dd \theta^2 + \sin^2 \theta \dd \phi^2\right);
+\end{equation}
+$t$ is the clock time of an observer at $r = \infty$, and $4\pi r^2$ is the area
+of the constant-$r$, constant-$t$ hypersurfaces.  The Schwarzschild radius (the
+coordinate of the event horizon) is $r_s = 2$ in these units.
+
+The metric has two killing vectors, $\partial_t$ and $\partial_\phi$, since it
+is independent of the corresponding coordinates.  Write
+\begin{equation}
+\partial_t = \xi^\mu \partial_\mu, \qquad \partial_\phi = \zeta^\mu \partial_\mu;
+\end{equation}
+then the only non-zero component of $\xi^\mu$ is $\xi^t = 1$, and the only
+non-zero component of $\zeta^\mu$ is $\zeta^\phi = 1$.  If $p^\mu$ is the
+momentum associated with a geodesic,
+\begin{equation}
+p^\mu = \frac{\dd \chi^\mu(\lambda)}{\dd \lambda},
+\end{equation}
+with $\lambda$ either proper time (for time-like geodesics) or an affine
+parameter (null geodesics), and $\chi^\mu(\lambda)$ the coordinates of the
+points on the geodesic, then N\"{o}ther's Theorem gives 
+\begin{eqnarray}
+\label{conserved}
+g_{\mu \nu} \xi^\mu p^\nu = - \left( 1 - \frac{2}{\chi^r} \right) p^t & = & \textnormal{const} \equiv - e,\\
+g_{\mu \nu} \zeta^\mu p^\nu = (\chi^r)^2 \sin^2 (\chi^\theta) p^\phi & = & \textnormal{const} \equiv l
+\end{eqnarray}
+along any geodesic.  ($e$ and $l$ are the energy and angular momentum---per unit
+mass, if appropriate---of the particle traveling the geodesic measured by an
+observer at infinity.)
+
+For a null geodesic, we also have the normalization condition 
+\begin{equation}
+\label{normalization}
+g_{\mu \nu} p^\mu p^\nu = 0.
+\end{equation}
+Exploiting the rotational symmetry of the $\theta$-$\phi$ subspace, we can,
+without loss of generality, consider only geodesics which have $\chi^\theta
+(\lambda) = \pi /2$.  In this case, Equation \ref{normalization} becomes
+\begin{equation}
+-\frac{e^2}{1 - \frac{2}{\chi^r}} + \frac{l^2}{(\chi^r)^2} + \frac{1}{1-\frac{2}{\chi^r}} \left( \frac{\dd \chi^r}{\dd \lambda} \right)^2 = 0.
+\end{equation}
+Rescaling the affine parameter, we obtain
+\begin{equation}
+\label{radial-path}
+\frac{\dd \chi^r(s)}{\dd s} = \pm \sqrt{1 - \frac{b^2\left(1 - \frac{2}{\chi^r(s)} \right)}{(\chi^r(s))^2}},
+\end{equation}
+with $b \equiv l/e$ called the ``impact parameter''\footnote{$b$ is so named
+because it gives the distance at infinity between the geodesic and the nearest
+parallel line running radially from the center of the star.} of the trajectory.
+This equation and Equation \ref{conserved} completely determine a trajectory
+given $l$ and $e$.  
+
+\section{Intersection with the Surface}
+\label{sec:surface}
+
+For a given $b$, Equation \ref{radial-path} implies a point of closest approach
+to the mass at 
+\begin{equation}
+\frac{\dd \chi^r(s_0)}{\dd s} = 0 = 1 - \frac{b^2 \left( 1 - \frac{2}{\chi^r\left(s_0\right)} \right)}{(\chi^r(s_0))^2}.
+\end{equation}
+This gives a cubic equation for $\chi^r(s_0)\equiv r_0$, whose solution is not
+terribly illuminating.  
+
+It is of interest to determine the impact parameter, $\bNS$, of the ``grazing
+ray'' whose point of closest approach, $r_0$, is equal to the radius of the
+neutron star, $\rNS$.  Noting $\rNS \gg 2$ for physical neutron stars, we have 
+\begin{equation}
+     \bNS^2 = \frac{\rNS^2}{1 - \frac{2}{\rNS}} = \rNS^2 \left( 1 + \frac{2}{\rNS} + \frac{4}{\rNS^2} + \ldots \right),
+\end{equation}
+or 
+\begin{equation}
+    \bNS = \rNS \left( 1 + \frac{1}{\rNS} + \frac{3}{2 \rNS^2} + \ldots \right).
+\end{equation}
+That the impact parameter of the grazing ray is \emph{larger} than the neutron
+star radius is a result of gravitational lensing.  It is interesting that the
+leading order addition to the impact parameter is one half the Schwarzschild
+radius.
+
+We wish to determine the longitude of the intersection of a ray with impact
+parameter $b < \bNS$ and the surface; this is $\chi^\phi$, the $\phi$ coordinate
+of the null geodesic, when the ray intersects the surface.  To do this, it will
+be more convenient to parameterize the trajectory by $\chi^r$. Using the
+trajectory derived in the last section (and remembering the scaling on the
+affine parameter $s$), we have 
+\begin{equation}
+\frac{\dd \chi^\phi}{\dd \chi^r} = \frac{\dd \chi^\phi/\dd s}{\dd \chi^r/\dd s} = \frac{-b}{(\chi^r)^2 \sqrt{1 - \frac{b^2 \left(1 - \frac{2}{\chi^r} \right)}{(\chi^r)^2}}}.
+\end{equation}
+Thus, the longitude at ``impact'' is 
+\begin{equation}
+\chi^\phi\left( \rNS \right) = \int_{\rNS}^{\infty} \dd u \, \frac{b}{u^2 \sqrt{1 - \frac{b^2\left(1 - \frac{2}{u} \right)}{u^2 }}}.
+\end{equation}
+(The impact parameter of the grazing ray is $\bNS = \rNS\left( 1 + 1/\rNS +
+\ldots \right)$, so the argument of the square root approaches zero for the
+grazing ray at impact, but otherwise is guaranteed to be positive.)
+
+It will be convenient to transform variables from $u$ to $w = u/\rNS$, whence 
+\begin{equation}
+    \chi^\phi\left( \rNS \right) = \int_{1}^{\infty} \dd w \, \frac{b}{\rNS w^2 \sqrt{1 - \frac{b^2\left(1 - \frac{2}{\rNS w} \right)}{\rNS^2 w^2}}}.
+\end{equation}
+It is also convenient to make the substitution 
+\begin{equation}
+    b = x \bNS = x \rNS \left( 1 + \frac{1}{\rNS} + \frac{3}{2 \rNS^2} + \ldots \right),
+\end{equation}
+whence $-1 < x < 1$ for rays that impact the neutron star surface. This produces 
+\begin{equation}
+    \chi^\phi\left( \rNS \right) = \int_1^\infty \dd w \, \frac{x \left( 1 + \frac{1}{\rNS} + \ldots \right)}{w^2 \sqrt{1 - \frac{x^2 \left( 1 + \frac{2}{\rNS} + \ldots \right)\left( 1 - \frac{2}{\rNS w} \right)}{w^2}}}.
+\end{equation}
+
+Expanding to leading order in $1/\rNS$, we obtain 
+\begin{equation}
+    \chi^\phi\left( \rNS \right) = \arcsin x + \frac{2 \left( 1 - \sqrt{1-x^2} \right)}{x \rNS} + \ldots.
+\end{equation}
+We see that the grazing ray ($x = 1$) impacts the stellar surface at longitude 
+\begin{equation}
+    \phiNS = \frac{\pi}{2} + \frac{2}{\rNS} + \ldots = \frac{\pi}{2} + \frac{\rSchw}{\rNS} + \ldots
+\end{equation}
 
 \bibliography{bib}
 
