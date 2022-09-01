@@ -83,6 +83,7 @@ without loss of generality, work in the equatorial plane, considering only
 geodesics which have $\chi^\theta (\lambda) = \pi /2$.  In this case, Equation
 \ref{normalization} becomes
 \begin{equation}
+    \label{eq:pr-normalization}
 -\frac{e^2}{1 - \frac{2}{\chi^r}} + \frac{l^2}{(\chi^r)^2} + \frac{1}{1-\frac{2}{\chi^r}} \left( \frac{\dd \chi^r}{\dd \lambda} \right)^2 = 0.
 \end{equation}
 Rescaling the affine parameter, we obtain
@@ -156,12 +157,45 @@ whence $-1 < x < 1$ for rays that impact the neutron star surface. This produces
 
 Expanding to leading order in $1/\rNS$, we obtain 
 \begin{equation}
+    \label{eq:chi-phi-impact}
     \chi^\phi\left( \rNS \right) = \arcsin x + \frac{2 \left( 1 - \sqrt{1-x^2} \right)}{x \rNS} + \ldots.
 \end{equation}
 We see that the grazing ray ($x = 1$) impacts the stellar surface at longitude 
 \begin{equation}
     \phiNS = \frac{\pi}{2} + \frac{2}{\rNS} + \ldots = \frac{\pi}{2} + \frac{\rSchw}{\rNS} + \ldots
 \end{equation}
+
+It will be useful to have the momentum of the trajectory at the point of impact,
+when $\chi^r = \rNS$, $\chi^\theta = \pi/2$, and $\chi^\phi$ given in Eq.\
+\eqref{eq:chi-phi-impact}.  From Eq.\ \eqref{eq:conserved-e}, we see that 
+\begin{equation}
+    p^t = \frac{e}{1 - \frac{2}{\rNS}} \simeq e \left( 1 + \frac{2}{\rNS} + \ldots \right);
+\end{equation}
+from Eq.\ \eqref{eq:conserved-l}, and replacing the specific angular momentum
+$l$ with the impact parameter $b = l/e$, we see that 
+\begin{equation}
+    p^\phi = \frac{b e}{\rNS^2} = \frac{x e}{\rNS} \left( 1 + \frac{1}{\rNS} + \ldots \right);
+\end{equation}
+and from Eq.\ \eqref{eq:pr-normalization}, we see that 
+\begin{equation}
+    p^r = e \sqrt{1 + \left( \frac{2 + 3 \rNS}{\rNS^3} - 1 \right) x^2} \simeq e \sqrt{1-x^2} \left( 1 + \frac{3 x^2}{2 \left( 1 - x^2 \right) \rNS^2} + \ldots \right).
+\end{equation}
+
+For a ray that does not approach the surface in the equatorial plane, but rather
+strikes the surface at a colatitude $\theta_0$ (but still with impact parameter
+$b = x \bNS$), the tangent vector $\phi$ component rotates into $\theta$ and
+$\phi$ components, and the tangent is 
+\begin{eqnarray}
+    \label{eq:pt-final}
+    p^t & \simeq & e \left( 1 + \frac{2}{\rNS} + \ldots \right) \\ 
+    \label{eq:pr-final}
+    p^r & \simeq & e \sqrt{1-x^2} \left( 1 + \ldots \right) \\
+    \label{eq:ptheta-final}
+    p^\theta & \simeq & \frac{x e \cos \theta_0}{\rNS} \left( 1 + \frac{1}{\rNS} + \ldots \right) \\
+    \label{eq:pphi-final}
+    p^\phi & \simeq & \frac{x e}{\rNS} \left( 1 + \frac{1}{\rNS} + \ldots \right),
+\end{eqnarray}
+where we have kept only terms $\order{1/\rNS}$ beyond leading order.
 
 \section{Relativistic Effects on Energies}
 \label{sec:relativistic}
@@ -210,7 +244,17 @@ $e_\mathrm{surf}$ in the local rest frame (e.g.\ thermally from particles on the
 surface), the above equation relates the emitted energy to the energy as
 measured by observers at infinity ($e$).
 
-To be continued\ldots.
+Plugging in Eqs.\ \eqref{eq:pt-final}, \eqref{eq:pr-final},
+\eqref{eq:ptheta-final}, and \eqref{eq:pphi-final}, we obtain the relation
+between the energy observed at infinite distance ($e$) and the emitted energy at
+the surface ($e_\mathrm{surf}$) for a ray with impact factor $b = x \bNS$
+hitting the surface of the neutron star at colatitude $\theta_0$:
+\begin{multline}
+    \frac{e}{e_\mathrm{surf}} = 1 + y \vRot \sin \theta_0 + \left( y^2 - \frac{1}{2} \right) \vRot^2 \sin^2 \theta_0 \\ 
+    - \frac{1}{\rNS} \left( 1 - \left( y^2 - \frac{1}{2} \right) \vRot^2 \sin^2 \theta_0 \right) + \ldots, 
+\end{multline}
+where $y = x \sin \theta_0$ is the ``equatorial'' component of the
+(dimensionless) impact factor.
 
 \bibliography{bib}
 
