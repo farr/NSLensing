@@ -237,24 +237,35 @@ linearly (but not with coefficient equal to one) with proper time:
 For a photon striking the surface of the neutron star with momentum $p^\mu\left(
 e, l \right)$, the energy measured by the observer fixed to the surface is 
 \begin{equation}
-    -e_\mathrm{surf} = g_{\mu\nu} \frac{\dd \chi^\mu}{\dd \lambda} p^\nu;
+    -e_\mathrm{surf} = g_{\mu\nu} \frac{\dd \chi^\mu}{\dd \lambda} p^\nu.
 \end{equation}
-equivalently, for a photon \emph{emitted} from the surface with energy
-$e_\mathrm{surf}$ in the local rest frame (e.g.\ thermally from particles on the
-surface), the above equation relates the emitted energy to the energy as
-measured by observers at infinity ($e$).
+If we reverse the spatial components of the momentum, then for a photon
+\emph{emitted} from the surface with energy $e_\mathrm{surf}$ in the frame fixed
+to the stellar surface (e.g.\ thermally from particles on the surface), the
+above equation relates the emitted energy to the energy as measured by observers
+at infinity ($e$).
 
 Plugging in Eqs.\ \eqref{eq:pt-final}, \eqref{eq:pr-final},
-\eqref{eq:ptheta-final}, and \eqref{eq:pphi-final}, we obtain the relation
-between the energy observed at infinite distance ($e$) and the emitted energy at
-the surface ($e_\mathrm{surf}$) for a ray with impact factor $b = x \bNS$
-hitting the surface of the neutron star at colatitude $\theta_0$:
+\eqref{eq:ptheta-final}, and \eqref{eq:pphi-final}, remembering to reverse the
+spatial components of the momentum, we obtain the relation between the energy
+observed at infinite distance ($e$) and the emitted energy at the surface
+($e_\mathrm{surf}$) for a ray with impact factor $b = x \bNS$ hitting the
+surface of the neutron star at colatitude $\theta_0$:
 \begin{multline}
-    \frac{e}{e_\mathrm{surf}} = 1 + y \vRot \sin \theta_0 + \left( y^2 - \frac{1}{2} \right) \vRot^2 \sin^2 \theta_0 \\ 
+    \label{eq:energy-relation}
+    \frac{e}{e_\mathrm{surf}} = 1 - y \vRot \sin \theta_0 + \left( y^2 - \frac{1}{2} \right) \vRot^2 \sin^2 \theta_0 \\ 
     - \frac{1}{\rNS} \left( 1 - \left( y^2 - \frac{1}{2} \right) \vRot^2 \sin^2 \theta_0 \right) + \ldots, 
 \end{multline}
 where $y = x \sin \theta_0$ is the ``equatorial'' component of the
-(dimensionless) impact factor.
+(dimensionless) impact factor.  (Recall $x, y < 0$ for points west of the
+meridian and $x, y > 0$ for points to the east; $\sin \theta_0 > 0$ always
+because $0 < \theta_0 < \pi$.)
+
+The velocity-independent term in Eq.\ \eqref{eq:energy-relation} gives the
+gravitational redshift; the term linear in velocity gives the doppler shift from
+the rotational motion (blueshift---increased energy---west of the meridian,
+redshift---decreased energy---for points to the east); and the term quadratic in
+the velocity comes from relativistic beaming.
 
 \bibliography{bib}
 
