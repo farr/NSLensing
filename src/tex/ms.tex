@@ -267,6 +267,51 @@ the rotational motion (blueshift---increased energy---west of the meridian,
 redshift---decreased energy---for points to the east); and the term quadratic in
 the velocity comes from relativistic beaming.
 
+\section{Calculating the time delay}
+%
+\begin{linenomath}\begin{align}
+    \label{eq:geodesic}
+    ds^2 = g_{\mu\nu}dx^\mu dx^\nu = -(1-\frac{2}{r})dt^2 + \frac{1}{1-\frac{2}{r}}dr^2 + r^2(d\theta^2+\sin^2 \theta d\phi^2)
+\end{align}\end{linenomath}
+%
+\begin{linenomath}\begin{align}
+    \label{eq:momentum}
+    p^\mu = \frac{d\chi^\mu(\lambda)}{d\lambda}
+\end{align}\end{linenomath}
+%
+
+In order to calculate the time delay, we need to calculate $\frac{d\chi^t(\lambda)}{d\lambda}$ and $\frac{d\chi^r(\lambda)}{d\lambda}$. Then, the time delay
+can be calculated as 
+%
+\begin{linenomath}\begin{align}
+    \label{eq:timedelay}
+    \Delta t = \int_{r_{NS}}^{\infty} dr \left(\frac{d\chi^t}{d\chi^r} - \frac{d\chi^t}{d\chi^r}\vert_{b=0} \right)
+\end{align}\end{linenomath}
+%
+
+Let's calculate $\frac{d\chi^t(\lambda)}{d\lambda}$ and $\frac{d\chi^r(\lambda)}{d\lambda}$ assuming $\theta=\pi/2$ and therefore $p^\theta = 0$. The we have
+in null geodesic:
+%
+\begin{linenomath}\begin{align}
+    \label{eq:nullgeo}
+    -(1-\frac{2}{r})(p^t)^2 + \frac{1}{1-\frac{2}{r}}(p^r)^2 + r^2\sin^2 \theta (p^\phi)^2 = 0
+\end{align}\end{linenomath}
+%
+Solving eq. \ref{eq:nullgeo} leads to $p^t = \frac{d\chi^t(\lambda)}{d\lambda} = \frac{e}{1-\frac{2}{r}}$ and 
+%
+\begin{linenomath}\begin{align}
+    \label{eq:pr-squared}
+    \left(\frac{d\chi^r(\lambda)}{d\lambda}\right)^2 = \left(\frac{e^2}{1-\frac{2}{r}} - \frac{l}{r^2}\right) \left(1-\frac{2}{r}\right)
+\end{align}\end{linenomath}
+%
+which, in terms of $b$ becomes
+%
+\begin{linenomath}\begin{align}
+    \label{eq:pr-b}
+    \frac{d\chi^r(\lambda)}{d\lambda} = e^2\sqrt{\left(\frac{1}{1-\frac{2}{r}} - \frac{b}{r^2}\right) \left(1-\frac{2}{r}\right)}
+\end{align}\end{linenomath}
+%
+
 \bibliography{bib}
 
 \end{document}
