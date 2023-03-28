@@ -144,6 +144,7 @@ grazing ray at impact, but otherwise is guaranteed to be positive.)
 
 It will be convenient to transform variables from $u$ to $w = u/\rNS$, whence 
 \begin{equation}
+    \label{eq:w-substitution}
     \chi^\phi\left( \rNS \right) = \int_{1}^{\infty} \dd w \, \frac{b}{\rNS w^2 \sqrt{1 - \frac{b^2\left(1 - \frac{2}{\rNS w} \right)}{\rNS^2 w^2}}}.
 \end{equation}
 It is also convenient to make the substitution 
@@ -308,10 +309,34 @@ which, in terms of $b$ becomes
 %
 \begin{linenomath}\begin{align}
     \label{eq:pr-b}
-    \frac{d\chi^r(\lambda)}{d\lambda} = e^2\sqrt{\left(\frac{1}{1-\frac{2}{r}} - \frac{b}{r^2}\right) \left(1-\frac{2}{r}\right)}
+    \frac{d\chi^r(\lambda)}{d\lambda} = e\sqrt{\left(\frac{1}{1-\frac{2}{r}} - \frac{b}{r^2}\right) \left(1-\frac{2}{r}\right)}
 \end{align}\end{linenomath}
 %
-
+Therefore, the integral \ref{eq:timedelay} becomes:
+%
+\begin{linenomath}\begin{align}
+    \label{eq:timedelayfull}
+    \Delta t = \int_{r_{NS}}^{\infty} dr \left[\left(\frac{1}{1-\frac{2}{r}}\right) - \frac{1}{\sqrt{\left(1-\frac{2}{r}\right)^2 - \frac{b}{r^2}\left(1-\frac{2}{r}\right)^3}}\right]
+\end{align}\end{linenomath}
+%
+Following the substitution in Eq. \ref{eq:w-substitution}, we then get
+%
+\begin{linenomath}\begin{align}
+    \label{eq:tdelay-with-w}
+    \Delta t = \int_{1}^{\infty} \frac{dw}{r_{NS}} \left[\left(\frac{1}{1-\frac{2}{wr_{NS}}}\right) - \frac{1}{\sqrt{\left(1-\frac{2}{wr_{NS}}\right)^2 - \frac{b}{(wr_{NS})^2}\left(1-\frac{2}{wr_{NS}}\right)^3}}\right]
+\end{align}\end{linenomath}
+%
+It is also convenient to make the substitution 
+\begin{equation}
+    b = x \bNS = x \rNS \left( 1 + \frac{1}{\rNS} + \frac{3}{2 \rNS^2} + \ldots \right),
+\end{equation}
+whence $-1 < x < 1$ for rays that impact the neutron star surface. This produces 
+%
+\begin{linenomath}\begin{align}
+    \label{eq:tdelay-with-x}
+    \Delta t = \int_{1}^{\infty} \frac{dw}{r_{NS}} \left[\left(\frac{1}{1-\frac{2}{wr_{NS}}}\right) - \frac{1}{\sqrt{\left(1-\frac{2}{wr_{NS}}\right)^2 - \frac{x \rNS \left( 1 + \frac{1}{\rNS} + \frac{3}{2 \rNS^2} + \ldots \right)}{(wr_{NS})^2}\left(1-\frac{2}{wr_{NS}}\right)^3}}\right]
+\end{align}\end{linenomath}
+%
 \bibliography{bib}
 
 \end{document}
