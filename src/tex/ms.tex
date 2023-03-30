@@ -330,13 +330,21 @@ It is also convenient to make the substitution
 \begin{equation}
     b = x \bNS = x \rNS \left( 1 + \frac{1}{\rNS} + \frac{3}{2 \rNS^2} + \ldots \right),
 \end{equation}
-whence $-1 < x < 1$ for rays that impact the neutron star surface. This produces 
+which produces 
 %
 \begin{linenomath}\begin{align}
     \label{eq:tdelay-with-x}
     \Delta t = \int_{1}^{\infty} \frac{dw}{r_{NS}} \left[\left(\frac{1}{1-\frac{2}{wr_{NS}}}\right) - \frac{1}{\sqrt{\left(1-\frac{2}{wr_{NS}}\right)^2 - \frac{x \rNS \left( 1 + \frac{1}{\rNS} + \frac{3}{2 \rNS^2} + \ldots \right)}{(wr_{NS})^2}\left(1-\frac{2}{wr_{NS}}\right)^3}}\right]
 \end{align}\end{linenomath}
 %
+Substituting $1/r_{NS} = y$, and expanding around $y=0$, if Sabina hasn't made any mistakes, the integral gives
+%
+\begin{linenomath}\begin{align}
+    \label{eq:tdelay-solved}
+    \Delta t = -\frac{1}{8}x \frac{1}{r_{NS}^2}(4+4(4+x)\frac{1}{r_{NS}}),
+\end{align}\end{linenomath}
+%
+where $-1<x<1$.
 \bibliography{bib}
 
 \end{document}
