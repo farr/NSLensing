@@ -302,28 +302,28 @@ Solving eq. \ref{eq:nullgeo} leads to $p^t = \frac{d\chi^t(\lambda)}{d\lambda} =
 %
 \begin{linenomath}\begin{align}
     \label{eq:pr-squared}
-    \left(\frac{d\chi^r(\lambda)}{d\lambda}\right)^2 = \left(\frac{e^2}{1-\frac{2}{r}} - \frac{l}{r^2}\right) \left(1-\frac{2}{r}\right)
+    \left(\frac{d\chi^r(\lambda)}{d\lambda}\right)^2 = \left(\frac{e^2}{1-\frac{2}{r}} - \frac{l^2}{r^2}\right) \left(1-\frac{2}{r}\right)
 \end{align}\end{linenomath}
 %
 which, in terms of $b$ becomes
 %
 \begin{linenomath}\begin{align}
     \label{eq:pr-b}
-    \frac{d\chi^r(\lambda)}{d\lambda} = e\sqrt{\left(\frac{1}{1-\frac{2}{r}} - \frac{b}{r^2}\right) \left(1-\frac{2}{r}\right)}
+    \frac{d\chi^r(\lambda)}{d\lambda} = e\sqrt{\left(\frac{1}{1-\frac{2}{r}} - \frac{b^2}{r^2}\right) \left(1-\frac{2}{r}\right)}
 \end{align}\end{linenomath}
 %
 Therefore, the integral \ref{eq:timedelay} becomes:
 %
 \begin{linenomath}\begin{align}
     \label{eq:timedelayfull}
-    \Delta t = \int_{r_{NS}}^{\infty} dr \left[\left(\frac{1}{1-\frac{2}{r}}\right) - \frac{1}{\sqrt{\left(1-\frac{2}{r}\right)^2 - \frac{b}{r^2}\left(1-\frac{2}{r}\right)^3}}\right]
+    \Delta t = \int_{r_{NS}}^{\infty} dr \left[\left(\frac{1}{1-\frac{2}{r}}\right) - \frac{1}{\sqrt{\left(1-\frac{2}{r}\right)^2 - \frac{b^2}{r^2}\left(1-\frac{2}{r}\right)^3}}\right]
 \end{align}\end{linenomath}
 %
 Following the substitution in Eq. \ref{eq:w-substitution}, we then get
 %
 \begin{linenomath}\begin{align}
     \label{eq:tdelay-with-w}
-    \Delta t = \int_{1}^{\infty} \frac{dw}{r_{NS}} \left[\left(\frac{1}{1-\frac{2}{wr_{NS}}}\right) - \frac{1}{\sqrt{\left(1-\frac{2}{wr_{NS}}\right)^2 - \frac{b}{(wr_{NS})^2}\left(1-\frac{2}{wr_{NS}}\right)^3}}\right]
+    \Delta t = r_{NS} \int_{1}^{\infty} \mathrm{d} w \, \left[\left(\frac{1}{1-\frac{2}{wr_{NS}}}\right) - \frac{1}{\sqrt{\left(1-\frac{2}{wr_{NS}}\right)^2 - \frac{b^2}{(wr_{NS})^2}\left(1-\frac{2}{wr_{NS}}\right)^3}}\right]
 \end{align}\end{linenomath}
 %
 It is also convenient to make the substitution 
@@ -334,16 +334,15 @@ which produces
 %
 \begin{linenomath}\begin{align}
     \label{eq:tdelay-with-x}
-    \Delta t = \int_{1}^{\infty} \frac{dw}{r_{NS}} \left[\left(\frac{1}{1-\frac{2}{wr_{NS}}}\right) - \frac{1}{\sqrt{\left(1-\frac{2}{wr_{NS}}\right)^2 - \frac{x \rNS \left( 1 + \frac{1}{\rNS} + \frac{3}{2 \rNS^2} + \ldots \right)}{(wr_{NS})^2}\left(1-\frac{2}{wr_{NS}}\right)^3}}\right]
+    \Delta t = r_{NS} \int_{1}^{\infty} \mathrm{d}w \, \left[\left(\frac{1}{1-\frac{2}{wr_{NS}}}\right) - \frac{1}{\sqrt{\left(1-\frac{2}{wr_{NS}}\right)^2 - \frac{x^2 \rNS^2 \left( 1 + \frac{1}{\rNS} + \frac{3}{2 \rNS^2} + \ldots \right)^2}{(wr_{NS})^2}\left(1-\frac{2}{wr_{NS}}\right)^3}}\right]
 \end{align}\end{linenomath}
 %
-Substituting $1/r_{NS} = y$, and expanding around $y=0$, if Sabina hasn't made any mistakes, the integral gives
+Substituting $1/r_{NS} = y$, and expanding around $y=0$, the integral gives
 %
-\begin{linenomath}\begin{align}
+\begin{multline}
     \label{eq:tdelay-solved}
-    \Delta t = -\frac{1}{8}x \frac{1}{r_{NS}^2}(4+4(4+x)\frac{1}{r_{NS}}),
-\end{align}\end{linenomath}
-%
+    \Delta t = r_{NS} \left( -1 + \sqrt{1 - x^2} \right) \\ \times \left( 1 + \frac{1}{r_{NS}} \left( 1  + \frac{2}{-1 + \sqrt{1 - x^2}} \log\left( \frac{x^2}{2 - 2 \sqrt{1 - x^2}} \right) \right) + \mathcal{O}\left( \frac{1}{r_{NS}^2} \right) \right)
+\end{multline}
 where $-1<x<1$.
 \bibliography{bib}
 
