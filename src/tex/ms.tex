@@ -344,6 +344,92 @@ Substituting $1/r_{NS} = y$, and expanding around $y=0$, the integral gives
     \Delta t = r_{NS} \left( -1 + \sqrt{1 - x^2} \right) \\ \times \left( 1 + \frac{1}{r_{NS}} \left( 1  + \frac{2}{-1 + \sqrt{1 - x^2}} \log\left( \frac{x^2}{2 - 2 \sqrt{1 - x^2}} \right) \right) + \mathcal{O}\left( \frac{1}{r_{NS}^2} \right) \right)
 \end{multline}
 where $-1<x<1$.
+
+\section{Creating matrix E for the energy factor}
+To express the expression in \ref{eq:energy-relation} in matrix form using the spherical harmonic basis, we need to define matrices 
+that correspond to the spherical harmonic functions and their associated coefficients. 
+
+Let's denote the spherical harmonic basis as $Y_{lm}(\theta, \phi)$. The spherical harmonic basis is expressed as:
+\begin{equation}
+    \label{eq:spherical-harmonics}
+    Y_{lm}(\theta, \phi) = P_{lm}(\theta, \phi) \cdot e^{i \cdot m \cdot \phi}
+\end{equation}
+
+where $P_{lm}(\theta, \phi)$ are the associated Legendre polynomials.
+
+To express the given expression in matrix form using the spherical harmonic basis, we need to expand the function \( F(y, v_{\text{rot}}, \theta_0, r_s) \) 
+into a series of spherical harmonic functions and their coefficients. The general form of the spherical harmonic expansion is:
+
+\begin{equation}
+    F(y, v_{rot}, \theta_0, r_s) = \sum_{l=0}^{\infty} \sum_{m=-l}^{l} C_{lm} Y_{lm}(\theta, \phi) 
+\end{equation}
+
+% Now, let's break down the given function step by step:
+
+% \begin{multline}
+%     F(y, v_{rot}, \theta_0, r_s) &= 1 - yv_{\text{rot}}\sin{\theta_0} + (y^2 - \frac{1}{2})v_{\text{rot}}^2\sin^2{\theta_0} - \frac{1}{r_s}\left(1-(y^2 - \frac{1}{2})v_{\text{rot}}^2\sin^2{\theta_0}\right) \\
+%     = 1 - yv_{\text{rot}}\sin{\theta_0} + (y^2 - \frac{1}{2})v_{\text{rot}}^2\sin^2{\theta_0} - \\ \frac{1}{r_s} + \frac{(y^2 - \frac{1}{2})v_{\text{rot}}^2\sin^2{\theta_0}}{r_s} Y_{lm}(\theta, \phi) = P_{lm}(\theta, \phi) \cdot e^{i \cdot m \cdot \phi}
+% \end{multline}
+
+Now, the spherical harmonic expansion involves integrating \( F \) against each spherical harmonic function \( Y_{lm} \). 
+The coefficients \( C_{lm} \) can be found using the following formula:
+
+\begin{linenomath}\begin{align}
+    C_{lm} = \int F(y, v_{rot}, \theta_0, r_s) \cdot Y_{lm}^*(\theta, \phi) \, d\Omega 
+\end{align}\end{linenomath}
+
+Here's how the matrix elements are formed:
+
+\begin{linenomath}\begin{align}
+C_{lm} = \int F(y, v_{\text{rot}}, \theta_0, r_s) \cdot Y_{lm}^*(\theta, \phi) \, d\Omega 
+\end{align}\end{linenomath}
+
+For \( C_{00} \) (the \( l = 0, m = 0 \) component):
+
+\begin{linenomath}\begin{align}
+    C_{00} = \int F(y, v_{\text{rot}}, \theta_0, r_s) \cdot Y_{00}^*(\theta, \phi) \, d\Omega = \int F(y, v_{\text{rot}}, \theta_0, r_s) \, d\Omega 
+\end{align}\end{linenomath}
+
+
+In the spherical harmonic basis, we can express the coefficients of the basis functions in matrix form:
+
+\begin{multline}
+    \mathbf{C} = \begin{bmatrix}
+    1 & -v_{\text{rot}}\sin{\theta_0} & v_{\text{rot}}^2\sin^2{\theta_0} - \frac{1}{r_s} & 0 & \ldots \\
+    0 & y\sqrt{2}v_{\text{rot}}\sin{\theta_0} & 0 & \ldots & \ldots \\
+    0 & 0 & (y^2 - \frac{1}{2})\sqrt{6}v_{\text{rot}}^2\sin^2{\theta_0} & \ldots & \ldots \\
+    0 & 0 & 0 & \ldots & \ldots \\
+    \ldots & \ldots & \ldots & \ldots & \ldots \\
+    \end{bmatrix}
+\end{multline}
+
+Here, the rows of the matrix correspond to different values of "l" and the columns correspond to different values of "m". 
+The diagonal elements of the matrix correspond to the coefficients of the spherical harmonic basis functions with the same "l" and "m" values, 
+while off-diagonal elements are zero.
+
+Spherical harmonics for \(m = -1\), \(m = 0\), and \(m = 1\):
+$$Y_{l,-1}(\theta, \phi) = \sqrt{\frac{3}{8\pi}}e^{-i\phi}\sin\theta$$
+$$Y_{l,0}(\theta, \phi) = \sqrt{\frac{3}{4\pi}}\cos\theta$$
+$$Y_{l,1}(\theta, \phi) = -\sqrt{\frac{3}{8\pi}}e^{i\phi}\sin\theta$$
+
+Matrix elements for \(m = -1\):
+$$M_{-1} = -\sqrt{\frac{3}{8\pi}}v_{\text{rot}}e^{-i\phi_0}\sin\theta_0$$
+
+Matrix elements for \(m = 0\):
+$$M_{0} = -\frac{\sqrt{6}}{2}v_{\text{rot}}^2e^{-2i\phi_0}\sin^2\theta_0$$
+
+Matrix elements for \(m = 1\):
+$$M_{1} = -\sqrt{\frac{3}{8\pi}}v_{\text{rot}}^2e^{-2i\phi_0}\sin^2\theta_0$$
+
+\begin{multline}
+    \begin{bmatrix}
+        1 & -yv_{\text{rot}}\sin\theta_0 & (y^2 - \frac{1}{2})v_{\text{rot}}^2\sin^2\theta_0 - \frac{1}{r_s}(1 - (y^2 - \frac{1}{2})v_{\text{rot}}^2\sin^2\theta_0) \\
+        0 & -\sqrt{\frac{3}{8\pi}}v_{\text{rot}}e^{-i\phi_0}\sin\theta_0 & -\frac{\sqrt{6}}{2}v_{\text{rot}}^2e^{-2i\phi_0}\sin^2\theta_0 \\
+        0 & 0 & -\sqrt{\frac{15}{8\pi}}v_{\text{rot}}^2e^{-2i\phi_0}\sin^2\theta_0
+    \end{bmatrix}
+\end{multline}
+
+
 \bibliography{bib}
 
 \end{document}
