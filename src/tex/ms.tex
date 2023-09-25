@@ -202,7 +202,8 @@ where we have kept only terms $\order{1/\rNS}$ beyond leading order.
 \label{sec:relativistic}
 
 For a neutron star that is observed to pulse with period $P$, observers at fixed
-position on the surface follow coordinate trajectories that have 
+position on the surface follow coordinate trajectories in the body frame that
+have 
 \begin{eqnarray}
     \chi^\theta\left( \lambda \right) & = & \theta_0 \\
     \chi^r\left( \lambda \right) & = & \rNS \\
@@ -234,6 +235,36 @@ linearly (but not with coefficient equal to one) with proper time:
 \begin{equation}
     \Delta \chi^t = \Delta \lambda \frac{\dd \chi^t}{\dd \lambda}.
 \end{equation}
+
+To convert this world-line tangent vector to the \emph{observer} coordinate
+system, let the inclination of the neutron star spin be $\iota$ and the
+obliquity (measered ccw from ``vertical'' in the observer frame) be $\omega$.
+Then the neutron star spin three-vector has cartesian components in the observer
+frame of 
+\begin{equation}
+    \vec{s} = \left( \cos \iota, -\sin \iota \sin \omega, \sin \iota \cos \omega \right).
+\end{equation}
+If the incoming ray strikes the surface at a point with colatitude $\theta_0$
+and longitude $\phi_0$, then the vector pointing to the impact point has
+cartesian components in the observer frame of 
+\begin{equation}
+    \vec{r}_0 = \left( \cos \phi_0 \sin \theta_0, \sin\phi_0 \sin \theta_0, \cos \theta_0 \right).
+\end{equation}
+The instantaneous world-line tangent of the observer fixed to the NS surface at
+the point of impact is given in cartesian coordinates by 
+\begin{equation}
+    \vec{t}_0 = \frac{2 \pi r_{NS}}{P} \frac{\partial \chi^t}{\partial \lambda} \vec{s} \times \vec{r}_0. 
+\end{equation}
+In the observer spherical coordinate system the components of the tangent vector
+are given by 
+\begin{eqnarray}
+    \frac{\mathrm{d}\chi^t}{\mathrm{d} \lambda} & \simeq & 1 + \frac{1}{2}  \vRot^2 \sin^2 \theta_0 + \frac{1 + \frac{3}{2} \vRot^2 \sin^2 \theta_0}{\rNS} \\
+    \frac{\mathrm{d} \chi^r}{\mathrm{d} \lambda} & = & 0 \\
+    \frac{\mathrm{d} \chi^\theta}{\mathrm{d} \lambda} & = & \frac{\mathrm{d} \chi^t}{\mathrm{d}\lambda} \frac{2\pi}{P} \left( - \cos\iota \sin \phi_0 - \cos\phi_0 \sin \iota \sin \omega \right) \\
+    \frac{\mathrm{d} \chi^\phi}{\mathrm{d} \lambda} & = & \frac{\mathrm{d} \chi^t}{\mathrm{d}\lambda} \frac{2\pi}{P} \left( -\cos\iota \cos \phi_0 \cot \theta_0  + \sin \iota \left( \cos \omega + \cot \theta_0 \sin \phi_0 \sin \omega \right) \right)
+\end{eqnarray}
+
+[I have only worked out the geometry up to here.]
 
 For a photon striking the surface of the neutron star with momentum $p^\mu\left(
 e, l \right)$, the energy measured by the observer fixed to the surface is 
