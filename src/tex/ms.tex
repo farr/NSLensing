@@ -244,12 +244,13 @@ frame of
 \begin{equation}
     \vec{s} = \left( \cos \iota, -\sin \iota \sin \omega, \sin \iota \cos \omega \right).
 \end{equation}
+See the Figure \ref{fig:obs_cart}.
 %%%
 \begin{figure}
     \centering
         \includegraphics[width=0.9\columnwidth]{obs_cart_coord.png}
         \caption{The coordinates in the observer frame.}
-        \label{fig:testsim}
+        \label{fig:obs_cart}
     \end{figure}
 %%%
 If the incoming ray strikes the surface at a point with colatitude $\theta_0$
@@ -259,11 +260,24 @@ cartesian components in the observer frame of
     \vec{r}_0 = \left( \cos \phi_0 \sin \theta_0, \sin\phi_0 \sin \theta_0, \cos \theta_0 \right).
 \end{equation}
 The instantaneous world-line tangent of the observer fixed to the NS surface at
-the point of impact is given in cartesian coordinates by 
+the point of impact is given in cartesian coordinates by -- IT IS THE AZIMUTHAL VELOCITY? 
 \begin{equation}
+    \label{eq:tangent_vel}
     \vec{t}_0 = \frac{2 \pi r_{NS}}{P} \frac{\partial \chi^t}{\partial \lambda} \vec{s} \times \vec{r}_0. 
 \end{equation}
-In the observer spherical coordinate system the components of the tangent vector
+
+The cross product is 
+\begin{align*}
+    % \begin{equation}
+        \vec{s} \times \vec{r}_0 = \left(
+        -\sin \iota \sin \omega \cos \theta_0 - \sin \iota \cos \omega \sin\phi_0 \sin \theta_0, \right. \\
+        \left. \cos \iota \cos \theta_0 - \sin \iota \cos \omega \cos \phi_0 \sin \theta_0, \right. \\
+        \left. \cos \iota \sin\phi_0 \sin \theta_0 + \sin \iota \sin \omega \cos \phi_0 \sin \theta_0 \right)
+    % \end{equation}  
+\end{align*}
+    
+
+Plugging in the cross product into the equation \ref{eq:tangent_vel} and solving for $r-, \theta-, \phi-$ components of the vector, then, in the observer spherical coordinate system the components of the tangent vector
 are given by 
 \begin{eqnarray}
     \frac{\mathrm{d}\chi^t}{\mathrm{d} \lambda} & \simeq & 1 + \frac{1}{2}  \vRot^2 \sin^2 \theta_0 + \frac{1 + \frac{3}{2} \vRot^2 \sin^2 \theta_0}{\rNS} \\
