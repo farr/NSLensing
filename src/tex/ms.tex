@@ -58,6 +58,7 @@ then the only non-zero component of $\xi^\mu$ is $\xi^t = 1$, and the only
 non-zero component of $\zeta^\mu$ is $\zeta^\phi = 1$.  If $p^\mu$ is the
 momentum associated with a geodesic,
 \begin{equation}
+    \label{eq:momentum_definition}
 p^\mu = \frac{\dd \chi^\mu(\lambda)}{\dd \lambda},
 \end{equation}
 with $\lambda$ either proper time (for time-like geodesics) or an affine
@@ -67,9 +68,9 @@ points on the geodesic, then N\"{o}ther's Theorem gives
 \label{eq:conserved-e}
 g_{\mu \nu} \xi^\mu p^\nu = - \left( 1 - \frac{2}{\chi^r} \right) p^t & = & \textnormal{const} \equiv - e,\\
 \label{eq:conserved-l}
-g_{\mu \nu} \zeta^\mu p^\nu = (\chi^r)^2 \sin^2 (\chi^\theta) p^\phi & = & \textnormal{const} \equiv l
+g_{\mu \nu} \zeta^\mu p^\nu = (\chi^r)^2 \sin^2 (\chi^\theta) p^\phi & = & \textnormal{const} \equiv L
 \end{eqnarray}
-along any geodesic.  ($e$ and $l$ are the energy and angular momentum---per unit
+along any geodesic.  ($e$ and $L$ are the energy and angular momentum---per unit
 mass, if appropriate---of the particle traveling the geodesic measured by an
 observer at infinity.)
 
@@ -91,11 +92,11 @@ Rescaling the affine parameter, we obtain
 \label{radial-path}
 \frac{\dd \chi^r(s)}{\dd s} = \pm \sqrt{1 - \frac{b^2\left(1 - \frac{2}{\chi^r(s)} \right)}{(\chi^r(s))^2}},
 \end{equation}
-with $b \equiv l/e$ called the ``impact parameter''\footnote{$b$ is so named
+with $b \equiv L/e$ called the ``impact parameter''\footnote{$b$ is so named
 because it gives the distance at infinity between the geodesic and the nearest
 parallel line running radially from the center of the star.} of the trajectory.
 This equation and Equations \ref{eq:conserved-e} and \ref{eq:conserved-l}
-completely determine a trajectory given $l$ and $e$.  
+completely determine a trajectory given $L$ and $e$.  
 
 \section{Intersection with the Surface}
 \label{sec:surface}
@@ -201,6 +202,21 @@ vector $l$ by
 
 [Work out the rotation of the $p^\phi$ momentum vector above.]
 
+From the Equation \ref{eq:conserved-l}, we can write
+\begin{equation}
+    p^{\phi} = \frac{L}{(\chi^r)^2 \sin^2(\chi^\theta)} = \frac{L}{(\rNS)^2 \sin^2(\cos^{-1} \left( \sin \alpha \sin \psi \right))}
+\end{equation}
+
+and after applying the normalization condition, we get
+\begin{equation}
+    p^{\theta} = -\frac{\sqrt{\frac{l^2\left(\frac{e^2\left(l^2\left(3-2\rNS^2\right)^2-4\rNS^2\left(\rNS^2-3\right)\right)}{\left(l^2-1\right)(\rNS-2)}+\frac{4\rNS}{\sin^2(\alpha)\sin^2(\psi)-1}\right)}{\rNS^3}}}{2\rNS}
+\end{equation}
+
+or, if we expand in series, then we get
+\begin{equation}
+    p^{\theta}=-\frac{\sqrt{e^2l^2}}{\rNS}-\frac{\sqrt{e^2l^2}}{\rNS^2}-\frac{\sqrt{e^2l^2}}{2\rNS^3\left(e^2\left(\sin^2(\alpha)\sin^2(\psi)-1\right)\right)}+O\left(\left(\frac{1}{\rNS}\right)^4\right)
+\end{equation}
+
 \section{Relativistic Effects on Energies}
 \label{sec:relativistic}
 
@@ -248,7 +264,7 @@ The instantaneous world-line tangent of the observer fixed to the NS surface at
 the point of impact is given in cartesian coordinates by
 \begin{equation}
     \label{eq:tangent_vel}
-    \vec{t}_0 = \frac{2 \pi r_{NS}}{P} \frac{\partial \chi^t}{\partial \lambda} \vec{s} \times \vec{r}_0. 
+    \vec{\tau}_0 = \frac{2 \pi r_{NS}}{P} \frac{\partial \chi^t}{\partial \lambda} \vec{s} \times \vec{r}_0. 
 \end{equation}
 
 The cross product is 
@@ -478,6 +494,29 @@ $$M_{1} = -\sqrt{\frac{3}{8\pi}}v_{\text{rot}}^2e^{-2i\phi_0}\sin^2\theta_0$$
         0 & 0 & -\sqrt{\frac{15}{8\pi}}v_{\text{rot}}^2e^{-2i\phi_0}\sin^2\theta_0
     \end{bmatrix}
 \end{multline}
+
+\section{Notations}
+\begin{table}[]
+    \begin{tabular}{lll}
+    \hline
+    \textbf{Symbol}                   & \textbf{Description}                                                                & \textbf{Reference}                                        \\ \hline
+    $\theta_0$                        & colatitude on the surface of the star                                                &                                                         \\
+    $\phi_0$                          & longitude on the surface of the star                                                 &                                                         \\
+    $L$                              & the specific angular momentum                                                        & Equation \ref{eq:conserved-l}                           \\
+    $t$                              & the clock time of an observer at $r=\infty$                                            & --                                                      \\
+    $\rNS$                           & radius of a neutron star                                                             &                                                         \\
+    $p^\mu$                          & the momentum associated with a geodesic                                              & Equation \ref{eq:momentum_definition}                   \\
+    $\chi^\mu$                       & the coordinates of the points on the geodesic                                        & --                                                      \\
+    $\lambda$                        & affine parameter                                                                     & --                                                      \\
+    $g_{\mu\nu}$                     & components of the metric tensor                                                      & --                                                      \\
+    $e$                              & the specific energy                                                                  & Equation \ref{eq:conserved-e}                           \\
+    $\omega$                         & the stellar obliquity                                                                &                                                         \\
+    $\iota$                          & the stellar inclination                                                             &                                                        \\
+    $\psi$                           & the angular components of the impact parameter \\
+                                     &  associated with the positive $x$-axis &                                            \\
+                                     &                                                                                      &                                                         \\ \hline
+    \end{tabular}
+    \end{table}
 
 
 \bibliography{bib}
